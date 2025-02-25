@@ -1,8 +1,8 @@
 // CS201R-Unit7.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+//https://github.com/jjgr29/CS201R-Unit7
 
 #include <iostream>
-
 #include "Functions.h"
 
 
@@ -32,6 +32,6 @@ int main() {
 	SelectionSort(select);
 	InsertionSort(insert);
 	BubbleSort(bubble);
-	QuickSort(quick, 0, select.size() - 1);
-	MergeSort(merge);
+	//QuickSort(quick, 0, select.size() - 1);
+	//MergeSort(merge);
 }

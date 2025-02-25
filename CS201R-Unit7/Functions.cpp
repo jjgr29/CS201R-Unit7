@@ -19,10 +19,15 @@ int LinearSearch(vector v1, int key) {
 	RETURN -1
 */
 int LinearSearch(vector<int> v1, int key) {
-
-
-	cout << "Code this!\n";
-	return -1;
+    cout << "\n\nLINEAR SEARCH\n";
+    //cout << "Code this!\n";
+    int i;
+    for (i = 0; i < v1.size(); ++i) {
+        if (v1.at(i) == key) {
+            return i;
+        }
+    }
+    return -1; /* not found */
 }
 
 //BINARY SEARCH
@@ -45,8 +50,29 @@ int BinarySearch(vector, int key) {
 	   RETURN -1; // not found
 */
 int BinarySearch(vector<int> v1, int key) {
-	cout << "Code this!\n";
-	return -1;
+    cout << "\n\nBINARY SEARCH\n";
+	//cout << "Code this!\n";
+    int mid;
+    int low;
+    int high;
+
+    low = 0;
+    high = v1.size() - 1;
+
+    while (high >= low) {
+        mid = (high + low) / 2;
+        if (v1.at(mid) < key) {
+            low = mid + 1;
+        }
+        else if (v1.at(mid) > key) {
+            high = mid - 1;
+        }
+        else {
+            return mid;
+        }
+    }
+
+    return -1; // not found
 }
 //SELECTION SORT
 //PRE:  vector loaded with int values 
@@ -67,8 +93,30 @@ int BinarySearch(vector<int> v1, int key) {
 */
 void SelectionSort(vector<int>& v1) {
     cout << "\n\nSELECTION SORT\n";
-    cout << "CODE THIS\n";
+    //cout << "CODE THIS\n";
 
+    int i;
+    int j;
+    int indexSmallest;
+    int temp;      // Temporary variable for swap
+
+    for (i = 0; i < v1.size() - 1; ++i) {
+
+        // Find index of smallest remaining element
+        indexSmallest = i;
+        for (j = i + 1; j < v1.size(); ++j) {
+
+            if (v1[j] < v1[indexSmallest]) {
+                indexSmallest = j;
+            }
+        }
+
+        // Swap v1[i] and v1[indexSmallest]
+        temp = v1[i];
+        v1[i] = v1[indexSmallest];
+        v1[indexSmallest] = temp;
+        printl(v1);
+    }
 }
 
 //INSERTION SORT
@@ -87,7 +135,19 @@ void SelectionSort(vector<int>& v1) {
 */
 void InsertionSort(vector<int>& v1) {
     cout << "\n\nINSERTION SORT\n";
-    cout << "CODE THIS\n";
+    //cout << "CODE THIS\n";
+    int temp, j;
+    for (int i = 1; i < v1.size(); ++i) {
+        j = i;
+        while (j > 0 && v1[j] < v1[j - 1]) {
+            temp = v1[j];
+            v1[j] = v1[j - 1];
+            v1[j - 1] = temp;
+            --j;
+        }
+        printl(v1);
+    }
+    printl(v1);
 }
 
 //BUBBLESORT
@@ -106,7 +166,18 @@ void InsertionSort(vector<int>& v1) {
 */
 void BubbleSort(vector<int>& v1) {
     cout << "\n\nBUBBLE SORT\n";
-    cout << "CODE THIS\n";
+    //cout << "CODE THIS\n";
+    int temp;
+    for (int i = v1.size() - 1; i >= 1; --i) {
+        for (int j = 0; j < i; ++j) {
+            if (v1[j] > v1[j + 1]) {
+                temp = v1[j];
+                v1[j] = v1[j + 1];
+                v1[j + 1] = temp;
+            }
+        }
+        printl(v1);
+    }
 }
 
 //QUICK SORT
